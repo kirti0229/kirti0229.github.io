@@ -1,62 +1,94 @@
+:root {
+    --color-light-bg: #cad2c5;
+    --color-light-text: #354f52;
+    --color-dark-bg: #2f3e46;
+    --color-dark-text: #cad2c5;
+    --primary-color: #52796f;
+    --secondary-color: #84a98c;
+    --spacing: 10px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
+    color: var(--color-light-text);
+    background-color: var(--color-light-bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.theme-dark {
+    color: var(--color-dark-text);
+    background-color: var(--color-dark-bg);
 }
 
 .container {
-    width: 80%;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
 }
 
 .photo {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex; 
+    justify-content: center;
+  
 }
 
 .photo img {
     border-radius: 50%;
     width: 150px;
     height: 150px;
-    object-fit:cover;
-    border: 3px solid #007bff;
+    object-fit: cover;
+    border: 3px solid var(--secondary-color);
 }
 
-h1 {
-    text-align: center;
-    color: #007bff;
-    margin-bottom: 20px;
+.side-nav {
+    width: 20%;
+    padding: var(--spacing);
+    background: var(--color-dark-bg);
+    color: var(--color-dark-text);
 }
 
-.section {
-    margin-bottom: 20px;
+.side-nav__list {
+    list-style-type: none;
+    padding: 0;
 }
 
-h2 {
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    color: #007bff;
+.side-nav__item {
+    cursor: pointer;
+    padding: var(--spacing);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-p, li {
-    line-height: 1.6;
+.side-nav__item:hover {
+    background: rgba(255, 255, 255, 0.1);
 }
 
-ul {
-    list-style-type: disc;
-    margin: 10px 0 0 20px;
+.side-nav__dropdown {
+    display: none;
+    margin-left: var(--spacing);
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
+.side-nav__theme-toggle {
+    margin-bottom: var(--spacing);
+    padding: var(--spacing);
+    background: var(--primary-color);
+    color: var(--color-light-bg);
+    border: none;
+    cursor: pointer;
 }
 
-a:hover {
-    text-decoration: underline;
+.main-content {
+    width: 80%;
+    padding: var(--spacing);
+    overflow-y: auto;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
+::selection {
+    background: var(--secondary-color);
+    color: var(--color-light-bg);
 }
